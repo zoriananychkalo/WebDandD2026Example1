@@ -28,29 +28,33 @@ app.set('views',  'views');
 
 // where to find static files - css, images, js
 // this needs to be uncommented so that the css file can be found and used in the layout.hbs file
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
-// home page or home route
-app.get('/', (req, res) => {
+const pages = {
+  '/': { view: 'index', title: 'Biomes', state: { home: true } },
+  '/index.html': { view: 'index', title: 'Biomes', state: { home: true } },
+  '/about.html': { view: 'about', title: 'About', state: { about: true } },
+  '/arctic.html': { view: 'arctic', title: 'Arctic' },
+  '/contact.html': { view: 'contact', title: 'Contact' },
+  '/desert.html': { view: 'desert', title: 'Desert' },
+  '/learnmore.html': { view: 'learnmore', title: 'Learn more', state: { about: true } },
+  '/map.html': { view: 'map', title: 'Map', state: { map: true } },
+  '/newspaper.html': { view: 'newspaper', title: 'Newspaper' },
+  '/ocean.html': { view: 'ocean', title: 'Ocean' },
+  '/savanna.html': { view: 'savanna', title: 'Savanna' },
+  '/species.html': { view: 'species', title: 'Species', state: { species: true } },
+  '/team.html': { view: 'team', title: 'Our team' },
+  '/tropicalrainforest.html': { view: 'tropicalrainforest', title: 'Tropical rainforest' },
+};
 
-  // set active for navigation
-  state={home:true}
-  // set specifics for <head>
-  head={title: "Home - Week 1"}
-  // pass object to to render in "index"
-  res.render('index', {state, head});
-  // send this to terminal where node app is running
-  console.log('home')
-
-});
-
-// contact route
-app.get('/contact', (req, res) => {
-    state={contact : true}
-    head={title:"Contact - Week 1"}
-    res.render('contact', { state, head});
-    console.log('contact')
+for (const [route, page] of Object.entries(pages)) {
+  app.get(route, (req, res) => {
+    res.render(page.view, {
+      head: { title: page.title },
+      state: page.state || {},
+    });
   });
+}
 
 
 // Start the server

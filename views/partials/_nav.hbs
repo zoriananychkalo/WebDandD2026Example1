@@ -1,9 +1,8 @@
-
-<nav>
-     <ul>
-          <li ><a  class='{{#if state.home}}active{{/if}}' href='/'>Home</a></li>     
-          <li><a class='{{#if state.contact}}active{{/if}}' href='contact'>Contact</a></li>
-
-     </ul>
-</nav>
-
+<header>
+     <nav aria-label="Main navigation">
+          <a class="{{#if state.home}}active{{/if}}" href="/">home</a>
+          <a class="{{#if state.species}}active{{/if}}" href="/species.html">species</a>
+          <a class="{{#if state.map}}active{{/if}}" href="/map.html">map</a>
+          <a class="{{#if state.about}}active{{/if}}" href="/about.html">about</a>
+     </nav>
+</header>

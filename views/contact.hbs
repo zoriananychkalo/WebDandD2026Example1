@@ -1,7 +1,11 @@
-<main>
-    <h1>Contact</h1>
-    <p>This is content on the contact page. Can you change it to give
-        your own contact deails. It has changed. My name is Zoriana.
-        
-        </p>
-</main>
+<section>
+    <h1 class="contact-title">Contact Form</h1>
+    <form action="/contact.html" method="get">
+      <input type="text" name="first" placeholder="First Name:"><span class="required">*</span>
+      <input type="text" name="last" placeholder="Last Name:"><span class="required">*</span>
+      <input type="email" name="email" placeholder="Email Address:"><span class="required">*</span>
+      <textarea rows="5" cols="60" name="message" placeholder="Enter text:" autocomplete="off" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-left: 138px"><span class="required">*</span> <em> indicates a required field</em></p>
+  </section>
