@@ -1,0 +1,95 @@
+<main class="content bootstrap-page">
+<h1 class="page-title">Holiday Booking Form</h1>
+
+<form action="#" method="get">
+
+    <!-- Input Box -->
+    <div class="form-check">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" aria-describedby="nameHelp">
+            <label for="name">Full Name</label>
+            <p class="form-text" id="nameHelp">Please use the name on your passport or driving licence</p>
+        </div>
+    </div>
+    <!-- Password -->
+    <div class="form-check mb-3">
+        <label for="password" class="form-label">Account Password:</label>
+        <input type="password" id="password" name="password" class="form-control">
+    </div>
+    <!-- Text Area -->
+    <div class="form-check mb-3">
+        <label for="comments" class="form-label">Special Requests:</label>
+        <textarea id="comments" name="comments" rows="4" cols="40" class="form-control"></textarea>
+    </div>
+    <!-- Checkboxes -->
+    <fieldset class="form-check mb-3">
+        <legend>Extras</legend>
+
+        <div class="form-check mb-3">
+            <input type="checkbox" id="breakfast" name="extras" value="Breakfast"
+                class="form-check-input form-check-label">
+            <label for="breakfast" class="form-label">Breakfast Included</label>
+        </div>
+
+        <div class="form-check mb-3">
+            <input type="checkbox" id="parking" name="extras" value="Parking" class="form-check-input form-check-label">
+            <label for="parking" class="form-label">Parking Space</label>
+        </div>
+    </fieldset>
+
+    <!-- Radio Buttons -->
+    <fieldset class="form-check mb-3">
+        <legend>Room Type</legend>
+
+        <div class="form-check mb-3">
+            <input type="radio" id="single" name="room" value="Single" class="form-check-input form-check-label">
+            <label for="single" class="form-label">Single Room</label>
+        </div>
+
+        <div class="form-check mb-3">
+            <input type="radio" id="double" name="room" value="Double" class="form-check-input form-check-label">
+            <label for="double" class="form-label">Double Room</label>
+        </div>
+
+        <div class="form-check mb-3">
+            <input type="radio" id="family" name="room" value="Family" class="form-check-input form-check-label">
+            <label for="family" class="form-label">Family Room</label>
+        </div>
+    </fieldset>
+
+    <!-- Select -->
+    <div class="form-check mb-3">
+        <label for="destination" class="form-label">Destination:</label>
+        <select id="destination" name="destination" class="form-select">
+            <option value="">Choose a destination</option>
+            <option value="sligo">Sligo</option>
+            <option value="galway">Galway</option>
+            <option value="cork">Cork</option>
+            <option value="dublin">Dublin</option>
+        </select>
+    </div>
+
+
+    <!-- Multiple Select -->
+    <div class="form-check mb-3">
+        <label for="activities" class="form-label">Activities (hold Ctrl/Cmd to select multiple):</label>
+        <select id="activities" name="activities" class="form-select" multiple size="4">
+            <option value="hiking">Hiking</option>
+            <option value="surfing">Surfing</option>
+            <option value="cycling">Cycling</option>
+            <option value="boat-trip">Boat Trip</option>
+        </select>
+    </div>
+
+    <!-- Bootstrap Switch -->
+    <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" name="switchCheckDefault">
+        <label class="form-check-label" for="switchCheckDefault">Demo purposes only, this is a switch input</label>
+    </div>
+
+
+    <!-- Submit Button -->
+    <input type="submit" value="Book Holiday" class="btn btn-primary">
+
+</form>
+</main>
