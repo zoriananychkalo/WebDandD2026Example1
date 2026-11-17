@@ -1,0 +1,911 @@
+/* ==========================================================
+   Mobile first: the base styles below are for small screens.
+   Larger screens are added with min-width media queries:
+     768px  = tablet
+     1100px = desktop
+   ========================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-padding-top: 160px;
+}
+
+main {
+  flex: 1;
+}
+
+img, iframe, video {
+  max-width: 100%;
+}
+
+h3 {
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#bottom {
+  text-decoration: none;
+}
+
+p {
+  color: #888888;
+  text-align: left;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ul, ol {
+  color: white;
+  text-align: left;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: #888888;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: white;
+}
+
+/* navigation bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 20px;
+  gap: 8px 20px;
+  background-color: #000000;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+nav a {
+  color: #888888;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+nav a.active {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* biomes hero text */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 130px 20px 40px;
+  width: 100%;
+  /* 1100px of content + 48px padding on each side */
+  max-width: 1196px;
+}
+
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(4rem, 24vw, 9rem);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-desc {
+  font-size: 14px;
+  text-align-last: left;
+  line-height: 1.75;
+  color: #888888;
+  max-width: 600px;
+}
+
+/* button beside biomes hero text */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 999px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+  width: fit-content;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* homepage cards */
+.cards-row {
+  display: flex;
+  gap: 16px;
+  padding: 0 20px 40px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.biome-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 0 0 240px;
+  height: 320px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.biome-card:hover {
+  transform: translateY(-5px);
+}
+
+.biome-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.biome-card:hover img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 55%);
+}
+
+.card-info {
+  position: relative;
+  z-index: 2;
+  padding: 16px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.content {
+  flex: 1;
+  padding: 130px 20px 40px;
+  background-color: #000000;
+}
+
+.page-title {
+  color: white;
+  padding-top: 0;
+  text-align: center;
+  font-size: 32px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.page-subtitle {
+  color: #888888;
+  font-size: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* card details / species section*/
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.card {
+  width: 100%;
+  max-width: 325px;
+  background-color: black;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(255,255,255,0.08);
+  margin: 20px 0;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-content h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+/* map */
+iframe {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* contact us section */
+.contact-title {
+  color: white;
+  padding-top: 80px;
+  text-align: center;
+  font-size: 32px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+form {
+  padding: 0 20px;
+}
+
+input {
+  background-color: white;
+  width: calc(100% - 20px);
+  font-size: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-color: black;
+  margin-bottom: 20px;
+}
+
+textarea {
+  background-color: white;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-color: black;
+  margin-bottom: 25px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+input:focus-within,
+textarea:focus-within {
+  outline: none;
+  border-color: #5bd183;
+  border-width: 3px;
+}
+
+button {
+  background-color: #5bd183;
+  border-radius: 20px;
+  border-color: black;
+  font-size: 18px;
+  padding: 10px 18px;
+  text-align: center;
+  display: flex;
+  margin: auto;
+}
+
+button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.required {
+  font-weight: bold;
+  color: red;
+}
+
+.required-note {
+  margin-left: 20px;
+}
+
+/* footer section */
+footer {
+  background-color: #111;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 20px;
+  text-align: center;
+  color: #ccc;
+}
+
+.footerIcons {
+  margin-bottom: 15px;
+}
+
+.footerIcons a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 16px;
+}
+
+.footerMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerMenu a {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-copy {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.footerBottom {
+  padding: 12px;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+}
+
+/* newspaper */
+.banner {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+.newspaper-columns {
+  columns: 1;
+  column-gap: 30px;
+  column-rule: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 10px;
+}
+
+.newspaper-columns p {
+  break-inside: avoid;
+}
+
+.paragraph {
+  margin-top: 0px;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.newspaper-image {
+  width: 100%;
+}
+
+hr.full {
+  width: 100%;
+}
+
+/* page content that starts straight under the fixed nav bar */
+.container {
+  padding-top: 70px;
+}
+
+/* team page */
+.team-section {
+  margin-top: 20px;
+}
+
+.team-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px auto;
+}
+
+.team-card {
+  background-color: rgba(255,255,255,0.08);
+  border-radius: 30px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  margin: 0 20px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.6s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-12px);
+}
+
+.team-image img {
+  border-radius: 50%;
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* table (more about us page) */
+table {
+  width: 100%;
+  font-size: 14px;
+}
+
+table, th, td {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+}
+
+th {
+  text-align: left;
+}
+
+/* about us page */
+.about-hero {
+  padding: 130px 20px 40px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 32px auto;
+}
+
+.about-content {
+  margin: 0 0 32px;
+}
+
+.about-content h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.about-button {
+  background-color: #5bd183;
+  border-radius: 20px;
+  border-color: black;
+  font-size: 18px;
+  padding: 10px 18px;
+  text-align: center;
+  display: inline-flex;
+  margin: 0;
+}
+
+.about-button:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.about-video {
+  width: 100%;
+}
+
+.about-video iframe {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.about-button a {
+  color: black;
+  font-size: 18px;
+  letter-spacing: normal;
+}
+
+/* booking form page: Bootstrap components in the colours of this site */
+.bootstrap-page form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* the site-wide input/textarea rules should not stretch Bootstrap controls */
+.bootstrap-page input,
+.bootstrap-page textarea,
+.bootstrap-page select {
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.bootstrap-page .form-check-input {
+  padding: 0;
+  font-size: 16px;
+}
+
+.bootstrap-page .form-control,
+.bootstrap-page .form-select {
+  font-size: 18px;
+}
+
+.bootstrap-page .form-text,
+.bootstrap-page .form-label {
+  color: #888888;
+}
+
+.bootstrap-page .form-label {
+  color: #ffffff;
+}
+
+.bootstrap-page .form-check-label {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.bootstrap-page legend {
+  font-size: 22px;
+}
+
+.bootstrap-page .form-check-input:checked {
+  background-color: #5bd183;
+  border-color: #5bd183;
+}
+
+.bootstrap-page .form-check-input:focus,
+.bootstrap-page .form-control:focus,
+.bootstrap-page .form-select:focus {
+  border-color: #5bd183;
+  box-shadow: 0 0 0 0.25rem rgba(91, 209, 131, 0.25);
+}
+
+.bootstrap-page .btn-primary {
+  --bs-btn-color: #000000;
+  --bs-btn-bg: #5bd183;
+  --bs-btn-border-color: #5bd183;
+  --bs-btn-hover-color: #000000;
+  --bs-btn-hover-bg: #4abf73;
+  --bs-btn-hover-border-color: #4abf73;
+  --bs-btn-active-color: #000000;
+  --bs-btn-active-bg: #4abf73;
+  --bs-btn-active-border-color: #4abf73;
+  --bs-btn-border-radius: 20px;
+  background: var(--bs-btn-bg);
+  color: var(--bs-btn-color);
+  border: 1px solid var(--bs-btn-border-color);
+  border-radius: var(--bs-btn-border-radius);
+  width: auto;
+  font-size: 20px;
+  padding: 10px 28px;
+}
+
+.bootstrap-page .btn-primary:hover {
+  background: var(--bs-btn-hover-bg);
+  border-color: var(--bs-btn-hover-border-color);
+}
+
+.bootstrap-page form > .form-check:not(.form-switch) {
+  padding-left: 0;
+}
+
+.bootstrap-page .form-floating > .form-text {
+  position: static;
+}
+
+.bootstrap-page .page-title {
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+/* responsive example page (mobile first) */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0 20px 40px;
+}
+
+.content .cards,
+.cards .cards {
+  padding: 0;
+}
+
+.cards .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 16px;
+}
+
+.cards .card h2 {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+
+/* the text grows, so the pictures start at the same height in every row */
+.cards .card p {
+  flex: 1;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.cards .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* small screens show the mobile picture, bigger screens the desktop one */
+.img-desktop {
+  display: none;
+}
+
+/* ---------- tablet: 768px and up ---------- */
+@media (min-width: 768px) {
+  .cards .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards .card h2 {
+    font-size: 28px;
+  }
+
+  .img-mobile {
+    display: none;
+  }
+
+  .img-desktop {
+    display: block;
+  }
+
+  p, ul, ol, a {
+    font-size: 20px;
+  }
+
+  nav {
+    justify-content: flex-end;
+    padding: 25px 48px;
+    gap: 38px;
+  }
+
+  .hero {
+    padding: 120px 48px 60px;
+    gap: 32px;
+  }
+
+  .hero-title {
+    font-size: 180px;
+  }
+
+  .cards-row {
+    padding: 0 48px 80px;
+  }
+
+  .biome-card {
+    flex: 0 0 300px;
+    height: 380px;
+  }
+
+  .content {
+    padding: 120px 48px 80px;
+  }
+
+  .page-title,
+  .contact-title {
+    font-size: 48px;
+  }
+
+  .contact-title {
+    padding-top: 20px;
+  }
+
+  form {
+    padding: 0;
+  }
+
+  .container {
+    padding-top: 0;
+  }
+
+  .page-subtitle {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .card-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 100px;
+  }
+
+  .card {
+    width: 325px;
+    margin: 20px;
+  }
+
+  .card-content h3 {
+    font-size: 28px;
+  }
+
+  input {
+    box-sizing: content-box;
+    width: 70%;
+    margin-left: 12%;
+    font-size: 20px;
+    padding: 16px 16px;
+  }
+
+  textarea {
+    box-sizing: content-box;
+    width: 70%;
+    margin-left: 12%;
+    font-size: 20px;
+    padding: 16px 16px;
+  }
+
+  button {
+    font-size: 22px;
+  }
+
+  .required-note {
+    margin-left: 138px;
+  }
+
+  footer {
+    padding: 20px 20px;
+  }
+
+  .footerMenu {
+    gap: 25px;
+  }
+
+  .newspaper-columns {
+    columns: 2;
+  }
+
+  .team-section {
+    margin-top: 75px;
+  }
+
+  .team-cards {
+    width: 85%;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .team-card {
+    border-radius: 50px;
+    margin: 0px 20px;
+    width: calc(33.33% - 20px);
+  }
+
+  table {
+    font-size: 16px;
+  }
+
+  th, td {
+    padding: 15px;
+  }
+
+  .about-hero {
+    padding: 120px 0 0;
+  }
+
+  .about-content h3 {
+    font-size: 38px;
+  }
+
+  .about-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .about-button,
+  .about-button a {
+    font-size: 22px;
+  }
+
+
+
+
+}
+
+/* ---------- desktop: 1100px and up ---------- */
+@media (min-width: 1100px) {
+  .cards .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero {
+    flex-direction: row;
+    gap: 64px;
+    padding: 120px 48px 80px;
+  }
+
+  .hero-title {
+    font-size: 260px;
+    line-height: 0.7;
+  }
+
+  .page-title,
+  .contact-title {
+    font-size: 60px;
+  }
+
+  .newspaper-columns {
+    columns: 3;
+  }
+
+  .about-container {
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 65px auto;
+  }
+
+  .about-content {
+    flex: 1;
+    width: 600px;
+    margin: 0px 25px;
+  }
+
+  .about-video {
+    flex: 1;
+    width: 600px;
+    margin: auto;
+  }
+
+  .about-video iframe {
+    height: 315px;
+    aspect-ratio: auto;
+  }
+
+
+
+}
